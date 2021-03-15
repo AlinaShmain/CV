@@ -1,0 +1,272 @@
+:root {
+  --color-primary: rgba(130, 65, 102, 0.8);
+  --color-subhead-light: rgba(193, 140, 170, 0.8); 
+  --color-subhead-middle: rgba(138, 81, 114, 0.8);
+  --color-subhead-dark: rgba(98, 61, 82, 0.8);
+  --color-link: rgba(121, 45, 88, 0.8);
+  --color-hover: #c8c8c6;
+  --color-shadow: rgba(122, 122, 122, 0.4);
+  --color-subtext: #999;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: "glyphicons";
+  src: url("../fonts/GlyphiconsHalflingsRegular/glyphicons-halflings-regular.eot");
+  src: url("../fonts/GlyphiconsHalflingsRegular/glyphicons-halflings-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/GlyphiconsHalflingsRegular/glyphicons-halflings-regular.woff")
+      format("woff"),
+    url("../fonts/GlyphiconsHalflingsRegular/glyphicons-halflings-regular.ttf")
+      format("truetype");
+}
+
+html {
+  background-color: rgb(228, 228, 228);
+  font-size: 17px;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  width: 70%;
+  font-size: 1em;
+  font-family: "glyphicons";
+  margin: 0 auto;
+}
+
+.top-line {
+  width: 100%;
+  height: 1em;
+  background-color: var(--color-primary);
+}
+
+#grid-container {
+  display: grid;
+  grid-template-areas:
+    "photo name"
+    "photo position"
+    "photo contact"
+    "links objectives"
+    "skills skills"
+    "experience experience"
+    "education education"
+    "languages languages";
+  grid-template-columns: minmax(100px, 1fr) 2fr;
+  grid-gap: 10px;
+  padding-top: 1em;
+  background-color: #fff;
+}
+
+@media (max-width: 870px) {
+  #grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "name"
+      "position"
+      "contact"
+      "links"
+      "objectives"
+      "skills"
+      "experience"
+      "education"
+      "languages";
+  }
+  
+  #grid-container #skills-section {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "subhead-skills"
+      "languages" 
+      "tools";
+  }
+
+  #grid-container #photo-section {
+    width: 40%;
+  }
+
+  #grid-container #objectives-section {
+    padding-left: 1.7em;
+  }
+}
+
+#photo-section {
+  grid-area: photo;
+  width: 80%;
+  justify-self: center;
+}
+
+#photo-section > img {
+  width: 100%;
+  border: 1px solid var(--color-hover);
+  padding: 0.7em;
+}
+
+#name-section {
+  grid-area: name;
+  font-weight: 100;
+  font-size: 1.3em;
+  line-height: 2em;
+  text-align: center;
+}
+
+#name-section span {
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+
+.line-center {
+  width: 15%;
+  height: 0.14em;
+  background-color: var(--color-primary);
+  border: 0;
+}
+
+#position-section {
+  grid-area: position;
+  letter-spacing: 5px;
+  align-self: center;
+  text-align: center;
+}
+
+#contact-section {
+  grid-area: contact;
+  text-align: center;
+}
+
+#contact-section > div {
+  line-height: 2em;
+}
+
+#contact-section .fas {
+  color: var(--color-primary);
+  margin-right: 10px;
+}
+
+#links-section {
+  grid-area: links;
+  align-self: center;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+}
+
+a {
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: #000;
+  transition: color 0.25s ease;
+}
+
+a:hover,
+.src-link a:hover {
+  color: var(--color-hover);
+}
+
+.fa-github::before,
+.fa-bitbucket::before {
+  font-size: 15px;
+  color: var(--color-primary);
+  margin-right: 8px;
+}
+
+#objectives-section {
+  grid-area: objectives;
+  padding-right: 1.7em;
+}
+
+#skills-section {
+  grid-area: skills;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "subhead-skills subhead-skills"
+    "languages tools";
+}
+
+.subhead.skills {
+  grid-area: subhead-skills;
+  background-color: var(--color-primary);
+}
+
+.subhead {
+  font-weight: 100;
+  font-size: 1.2em;
+  width: 25%;
+  letter-spacing: 1px;
+  margin: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  box-shadow: 0.2em 0.2em 5px var(--color-shadow);
+}
+
+#languages {
+  grid-area: languages;
+}
+
+#tools {
+  grid-area: tools;
+}
+
+h4 {
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#experience-section {
+  grid-area: experience;
+}
+
+#experience-section > *,
+#skills-section > *, #education-section > *, #languages-section > * {
+  padding-left: 1.7em;
+  padding-right: 1.7em;
+}
+
+.subhead.experience {
+  background-color: var(--color-subhead-light);
+}
+
+h4 span {
+  font-weight: 100;
+  font-size: 15px;
+  color: var(--color-subtext);
+  text-transform: uppercase;
+}
+
+.underlined {
+  border-bottom: 3px dashed var(--color-hover);
+}
+
+.src-link {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--color-link);
+}
+
+.project-desc li:first-child {
+  padding-bottom: 0.7em;
+}
+
+#education-section {
+  grid-area: education;
+}
+
+.subhead.education {
+  background-color: var(--color-subhead-dark);
+}
+
+#languages-section {
+  grid-area: languages;
+}
+
+.subhead.languages {
+  background-color: var(--color-subhead-middle);
+}
